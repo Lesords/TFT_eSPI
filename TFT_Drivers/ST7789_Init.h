@@ -5,7 +5,7 @@
 //
 // See ST7735_Setup.h file for an alternative format
 
-#ifndef INIT_SEQUENCE_3
+#ifdef INIT_SEQUENCE_3
 {
   fillScreen(TFT_RED);
   writecommand(ST7789_SLPOUT);   // Sleep out
@@ -129,6 +129,110 @@
 #endif
 }
 
+#elif defined(INIT_ST7789P3)
+{
+  // fillScreen(TFT_RED);
+
+  writecommand(0x11);
+
+  delay(120);
+
+  writecommand(0x36);
+  writedata( 0x00);
+
+  writecommand(0x3A);
+  writedata( 0x05);
+
+  writecommand(0xB2);
+  writedata( 0x0C);
+  writedata( 0x0C);
+  writedata( 0x00);
+  writedata( 0x33);
+  writedata( 0x33);
+
+  writecommand(0xB7);
+  writedata( 0x05);
+
+  writecommand(0xBB);
+  writedata( 0x21);
+
+  writecommand(0xC0);
+  writedata( 0x2C);
+
+  writecommand(0xC2);
+  writedata( 0x01);
+
+  writecommand(0xC3);
+  writedata( 0x15);
+
+  writecommand(0xC6);
+  writedata( 0x0F);
+
+  writecommand(0xD0);
+  writedata( 0xA7);
+
+  writecommand(0xD0);
+  writedata( 0xA4);
+  writedata( 0xA1);
+
+  writecommand(0xD6);
+  writedata( 0xA1);   //sleep in后，gate输出为GND
+
+  writecommand(0xE0);
+  writedata( 0xF0);
+  writedata( 0x05);
+  writedata( 0x0E);
+  writedata( 0x08);
+  writedata( 0x0A);
+  writedata( 0x17);
+  writedata( 0x39);
+  writedata( 0x54);
+  writedata( 0x4E);
+  writedata( 0x37);
+  writedata( 0x12);
+  writedata( 0x12);
+  writedata( 0x31);
+  writedata( 0x37);
+
+  writecommand(0xE1);
+  writedata( 0xF0);
+  writedata( 0x10);
+  writedata( 0x14);
+  writedata( 0x0D);
+  writedata( 0x0B);
+  writedata( 0x05);
+  writedata( 0x39);
+  writedata( 0x44);
+  writedata( 0x4D);
+  writedata( 0x38);
+  writedata( 0x14);
+  writedata( 0x14);
+  writedata( 0x2E);
+  writedata( 0x35);
+
+  writecommand(0xE4);
+  writedata( 0x23);
+  writedata( 0x00);   //设定gate起点位置
+  writedata( 0x00);   //当gate没有用完时，bit4(TMG)设为0
+
+  writecommand(0x21);
+
+  writecommand(0x29);
+
+  writecommand(0x2C);
+
+  end_tft_write();
+  delay(120);
+  begin_tft_write();
+
+  writecommand(ST7789_DISPON);    //Display on
+  delay(120);
+#ifdef TFT_BL
+  // Turn on the back-light LED
+  digitalWrite(TFT_BL, HIGH);
+  pinMode(TFT_BL, OUTPUT);
+#endif
+}
 
 #else
 // TTGO ESP32 S3 T-Display
