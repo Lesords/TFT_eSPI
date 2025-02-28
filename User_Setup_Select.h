@@ -26,7 +26,8 @@
 
 // #include <User_Setup.h>           // Default setup is root library folder
 
-#include <User_Setups/Setup320_ST7789.h>
+// #include <User_Setups/Setup320_ST7789.h>
+#include <User_Setups/Setup320_ICNA3311.h>
 
 //#include <User_Setups/Setup1_ILI9341.h>  // Setup file for ESP8266 configured for my ILI9341
 //#include <User_Setups/Setup2_ST7735.h>   // Setup file for ESP8266 configured for my ST7735
@@ -207,6 +208,9 @@
 #elif defined (ST7735_DRIVER)
      #include <TFT_Drivers/ST7735_Defines.h>
      #define  TFT_DRIVER 0x7735
+#elif defined (ICNA3311_DRIVER)
+     #include <TFT_Drivers/ICNA3311_Defines.h>
+     #define  TFT_DRIVER 0x3311
 #elif defined (ILI9163_DRIVER)
      #include <TFT_Drivers/ILI9163_Defines.h>
      #define  TFT_DRIVER 0x9163

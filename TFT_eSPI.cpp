@@ -715,6 +715,10 @@ void TFT_eSPI::init(uint8_t tc)
     tabcolor = tc;
     #include "TFT_Drivers/ST7735_Init.h"
 
+#elif defined (ICNA3311_DRIVER)
+    tabcolor = tc;
+    #include "TFT_Drivers/ICNA3311_Init.h"
+
 #elif defined (ILI9163_DRIVER)
     #include "TFT_Drivers/ILI9163_Init.h"
 
@@ -839,6 +843,9 @@ void TFT_eSPI::setRotation(uint8_t m)
 
 #elif defined (ST7789_DRIVER)
     #include "TFT_Drivers/ST7789_Rotation.h"
+
+#elif defined (ICNA3311_DRIVER)
+    #include "TFT_Drivers/ICNA3311_Rotation.h"
 
 #elif defined (R61581_DRIVER)
     #include "TFT_Drivers/R61581_Rotation.h"
