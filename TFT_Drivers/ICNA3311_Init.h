@@ -50,4 +50,34 @@
   begin_tft_write();
 
   writecommand(0x29); // display on
+#if 1
+
+  delay(1); // look like dont' need 1000
+
+  writecommand(0x2C);
+
+  int cnt = 3;
+  while (cnt --) {
+    int ii = 448 * 368;
+    while (ii--) {
+      writedata(0xf8);
+      writedata(0x00); // red
+    }
+    delay(1000);
+
+    ii = 448 * 368;
+    while (ii--) {
+      writedata(0x00);
+      writedata(0x1f); // blue
+    }
+    delay(1000);
+
+    ii = 448 * 368;
+    while (ii--) {
+      writedata(0x0f);
+      writedata(0xf0); // green
+    }
+    delay(1000);
+  }
+#endif
 }
