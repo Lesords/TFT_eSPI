@@ -13,14 +13,14 @@
 #define TFT_SDA_READ      // This option is for ESP32 ONLY, tested with ST7789 display only
 
 // XIAO - S3
-#define TFT_BL    6 // D5 -> 12
+#define TFT_BL    38 // D5 -> 12
 
-#define TFT_DC    3 // D2 -> 2
-#define TFT_CS    4 // D3 -> 3
-#define TFT_SCLK  7 // D8 -> 4
-#define TFT_MOSI  9 // D10 -> 8
+#define TFT_DC    14 // D2 -> 2
+#define TFT_CS    10 // D3 -> 3
+#define TFT_SCLK  12 // D8 -> 4
+#define TFT_MOSI  11 // D10 -> 8
 #define TFT_MISO  -1 // no used
-#define TFT_RST   8 // D9 -> 9
+#define TFT_RST   21 // D9 -> 9
 
 #define LOAD_GLCD   // Font 1. Original Adafruit 8 pixel font needs ~1820 bytes in FLASH
 #define LOAD_FONT2  // Font 2. Small 16 pixel high font, needs ~3534 bytes in FLASH, 96 characters
